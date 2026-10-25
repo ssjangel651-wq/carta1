@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Sacramento&display=swap');
+
+* {
+   box-sizing: border-box;
+}
+
+#card {
+   width: min(900px, calc(100% - 32px));
+   max-height: calc(100dvh - 48px);
+   position: fixed;
+   inset: 24px 0 auto;
+   margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: max-content;
+   visibility: hidden;
+   overflow-y: auto;
+   overflow-x: hidden;
+   background: #fffdf9;
+   border-radius: 8px;
+   box-shadow: 0 12px 40px rgba(80, 40, 40, .2);
+}
+
+#card h2 {
+  font-family: 'Sacramento', cursive;
+   font-size: clamp(2.2rem, 6vw, 3rem);
+   line-height: 1.2;
+   margin: 0 0 24px;
+   color: #bd5269;
+   text-align: center;
+}
+
+#card p {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: left;
+   margin: 0 0 1em;
+  overflow-wrap: anywhere;
+}
+
+#card p:last-child {
+   margin-bottom: 0;
+}
+
+.side.one {
+  flex: 1 1 50%;
+  min-width: 0;
+  padding: clamp(24px, 5vw, 48px);
+  background: #f7e7e8;
+   border-right: 1px solid #ead9d5;
+}
+
+.side.two {
+  flex: 1 1 50%;
+   min-width: 0;
+   padding: clamp(24px, 5vw, 48px);
+   background: #fffdf9;
+}
+
+@media (max-width: 600px) {
+   #card {
+      max-height: calc(100dvh - 24px);
+      top: 12px;
+      grid-template-columns: minmax(0, 1fr);
+  }
+
+  .side.one,
+  .side.two {
+      min-width: 0;
+  }
+
+  .side.one {
+    border-right: 0;
+    border-bottom: 1px solid #ead9d5;
+   }
+}
+
+body {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100dvh;
+   margin: 0;
+   font-family: 'Sacramento', cursive;
+   background-color: #f1e3d3;
+   overflow: hidden;
+ }
+ 
+ .valentines-day {
+   position: relative;
+   cursor: pointer;
+ }
+ 
+ .envelope {
+   position: relative;
+   filter: drop-shadow(0 0 25px rgba(0,0,0,.3));
+ }
+ 
+ .envelope:before {
+   content:"";
+   position: absolute;
+   width:254px;
+   height:254px;
+   background-color: #ff9494;
+   transform: rotate(-45deg);
+   border-radius: 0 15px 0 0;
+   left:-37px;
+   top:-82px;
+ }
+ 
+ .envelope:after {
+   content:"";
+   position: absolute;
+   background-color: #ff9494;
+   width:360px;
+   height:225px;
+   left:-90px;
+   top:45px;
+ }
+ 
+ .heart {
+   position: relative;
+   background-color: #e01911;
+   display: inline-block;
+   height: 180px;
+   top:50px;
+   left:0;
+   transform: rotate(-45deg);
+   width:180px;
+   filter: drop-shadow(0 -10px 25px rgba(0,0,0,.3));
+   transition: .5s;
+ }
+   
+ .heart:before, .heart:after {
+   content:"";
+   background-color: #e01911;
+   border-radius:50%;
+   height: 180px;
+   width: 180px;
+   position: absolute;
+   }
+   
+ .heart:before {
+   top:-100px;
+   left:0;}
+   
+ .heart:after {
+   left:100px;
+   top:0;}
+ 
+ .front {
+   position: absolute;
+   width:0;
+   height:0;
+   border-right: 190px solid #fbd2d2;
+   border-top: 113px solid transparent;
+   border-bottom: 113px solid transparent;
+   top:44px;
+   left:80px;
+   z-index:4;
+ }
+ 
+ .front:before {
+   content:"";
+   position: absolute;
+   width:0;
+   height:0;
+   border-left: 190px solid #fbd2d2;
+   border-top: 113px solid transparent;
+   border-bottom: 113px solid transparent;
+   top:-113px;
+   left:-170px;
+ }
+ 
+ .front:after {
+   width:0;
+   height:0;
+   position: absolute;
+   content:"";
+   border-bottom: 150px solid #fce7e9;
+   border-right:180px solid transparent;
+   border-left: 180px solid transparent;
+   top:-36px;
+   left:-170px;
+ }
+ 
+ .text {
+   position: absolute;
+   font-family: arial;
+   letter-spacing:5px;
+   text-align: center;
+   color: white;
+   z-index:2;
+   top:80px;
+   left:15px;
+   transition: .5s;
+ }
+ 
+ .valentines-day:hover .heart {
+   transform: translateY(-50px) rotate(-45deg);
+ }
+ 
+ .valentines-day:hover .text {
+   transform: translateY(-50px);
+ }
